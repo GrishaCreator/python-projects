@@ -1,0 +1,175 @@
+import random
+
+
+
+map = [
+    ['-', '-', '-'],
+
+    ['-', '-', '-'],
+
+    ['-', '-', '-']
+]
+
+#  это отображает карту
+def create_map():
+    for i in range(1):
+        i = 0
+        for j in range(3):
+            print(map[i][j], end=' ')
+    print('', end='\n')
+    
+    for i in range(1):
+        i = 1
+        for j in range(3):
+            print(map[i][j], end=' ')
+    print('', end='\n')
+    
+    for i in range(1):
+        i = 2
+        for j in range(3):
+            print(map[i][j], end=' ')
+    print('', end='\n')
+
+create_map()
+
+
+while True:
+#  а это просто просто проверка ввода игрока и занятность клетки
+    print('Введите номер строки и клетку от 1 до 3 через пробел. Вы играете за ноликов, ход ваш')
+    cordinats = str(input())
+
+    x = int(cordinats[0])
+    y = int(cordinats[2])
+
+    if x not in [1, 2, 3] or y not in [1, 2, 3]:
+        print('Вы вышли за кординаты, примеры ввода: 1 2, 3 1, 2 3')
+        continue
+
+    if map[x-1][y-1] != '-':
+        print('Клетка уже занята')
+        create_map()
+        continue
+
+
+#  Это нужно чтобы короче чтоб бот ходил рандомна и не занимал уже занятые клетки и еще для проверки на ничью если все клетки будут заняты то будет ничья
+    def restart_map():
+        map[x-1][y-1] = 'O'
+        bot_x = random.randint(0, 2)
+        bot_y = random.randint(0, 2)
+
+        Is_l1_pusta = True
+        Is_l2_pusta = True
+        Is_l3_pusta = True
+
+        for i in range(1):
+            i = 0
+            for j in range(3):
+                j+1
+                if map[i][0] != '-' and map[i][1] != '-' and map[i][2] != '-':
+                    Is_l1_pusta = False
+        
+        
+        for i in range(1):
+            i = 1
+            for j in range(3):
+                if map[i][0] != '-' and map[i][1] != '-' and map[i][2] != '-':
+                    Is_l2_pusta = False
+
+        
+        for i in range(1):
+            i = 2
+            for j in range(3):
+                j+1
+                if map[i][0] != '-' and map[i][1] != '-' and map[i][2] != '-':
+                    Is_l3_pusta = False
+
+        if Is_l1_pusta == False and Is_l2_pusta == False and Is_l3_pusta == False:
+            print('Ничья')
+            exit()
+        
+
+        if map[bot_x][bot_y] == '-':
+            map[bot_x][bot_y] = 'X'
+        else:
+            while map[bot_x][bot_y] != '-':
+                bot_x = random.randint(0, 2)
+                bot_y = random.randint(0, 2)
+            map[bot_x][bot_y] = 'X'
+
+        create_map()
+    
+
+# ето писал дольше всего потому что много оч if elif
+    def win_variants():
+        if map[0][0] == 'O' and map[0][1] == 'O' and map[0][2] == 'O':
+            print('Вы выиграли!')
+            exit()
+
+        elif map[1][0] == 'O' and map[1][1] == 'O' and map[1][2] == 'O':
+            print('Вы выиграли!')
+            exit()
+
+        elif map[2][0] == 'O' and map[2][1] == 'O' and map[2][2] == 'O':
+            print('Вы выиграли!')
+            exit()
+
+        elif map[0][0] == 'O' and map[1][0] == 'O' and map[2][0] == 'O':
+            print('Вы выиграли!')
+            exit()
+
+        elif map[0][1] == 'O' and map[1][1] == 'O' and map[2][1] == 'O':
+            print('Вы выиграли!')
+            exit()
+
+        elif map[0][2] == 'O' and map[1][2] == 'O' and map[2][2] == 'O':
+            print('Вы выиграли!')
+            exit()
+
+        elif map[0][0] == 'O' and map[1][1] == 'O' and map[2][2] == 'O':
+            print('Вы выиграли!')
+            exit()
+
+        elif map[0][2] == 'O' and map[1][1] == 'O' and map[2][0] == 'O':
+            print('Вы выиграли!')
+            exit()
+
+# победа противника
+
+        if map[0][0] == 'X' and map[0][1] == 'X' and map[0][2] == 'X':
+            print('Вы проиграли!')
+            exit()
+
+        elif map[1][0] == 'X' and map[1][1] == 'X' and map[1][2] == 'X':
+            print('Вы проиграли!')
+            exit()
+
+        elif map[2][0] == 'X' and map[2][1] == 'X' and map[2][2] == 'X':
+            print('Вы проиграли!')
+            exit()
+
+        elif map[0][0] == 'X' and map[1][0] == 'X' and map[2][0] == 'X':
+            print('Вы проиграли!')
+            exit()
+
+        elif map[0][1] == 'X' and map[1][1] == 'X' and map[2][1] == 'X':
+            print('Вы проиграли!')
+            exit()
+
+        elif map[0][2] == 'X' and map[1][2] == 'X' and map[2][2] == 'X':
+            print('Вы проиграли!')
+            exit()
+
+        elif map[0][0] == 'X' and map[1][1] == 'X' and map[2][2] == 'X':
+            print('Вы проиграли!')
+            exit()
+
+        elif map[0][2] == 'X' and map[1][1] == 'X' and map[2][0] == 'X':
+            print('Вы проиграли!')
+            exit()
+
+
+        else: pass
+
+
+    win_variants()
+    restart_map()
