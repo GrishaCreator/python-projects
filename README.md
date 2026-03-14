@@ -4,3 +4,5 @@ A diverse collection of Python scripts and tools. Data processing, and code exam
 
 Russian:
 Коллекция полезных Python-скриптов и инструментов. Работа с данными и примеры кода.
+
+English: Sorry comments in codes is can be Russian. You can use translator.
