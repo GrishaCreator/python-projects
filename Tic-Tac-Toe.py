@@ -1,5 +1,5 @@
 import random
-
+import os
 
 
 map = [
@@ -34,7 +34,7 @@ create_map()
 
 
 while True:
-    
+
 # ето писал дольше всего потому что много оч if elif
     def win_variants():
         if map[0][0] == 'O' and map[0][1] == 'O' and map[0][2] == 'O':
@@ -106,7 +106,6 @@ while True:
 
         else: pass
 
-    
 #  а это просто просто проверка ввода игрока и занятность клетки
 
     win_variants()
@@ -121,6 +120,7 @@ while True:
         continue
 
     if map[x-1][y-1] != '-':
+        print('')
         print('Клетка уже занята')
         create_map()
         continue
@@ -171,6 +171,7 @@ while True:
                 bot_y = random.randint(0, 2)
             map[bot_x][bot_y] = 'X'
 
+        os.system('clear')
         create_map()
     
 
