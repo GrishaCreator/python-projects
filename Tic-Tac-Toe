@@ -35,6 +35,7 @@ create_map()
 
 while True:
 #  а это просто просто проверка ввода игрока и занятность клетки
+    win_variants()
     print('Введите номер строки и клетку от 1 до 3 через пробел. Вы играете за ноликов, ход ваш')
     cordinats = str(input())
 
@@ -171,5 +172,5 @@ while True:
         else: pass
 
 
-    win_variants()
+    
     restart_map()
