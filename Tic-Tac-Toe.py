@@ -115,13 +115,9 @@ while True:
     x = int(cordinats[0])
     y = int(cordinats[2])
 
-    if x not in [1, 2, 3] or y not in [1, 2, 3]:
-        print('Вы вышли за кординаты, примеры ввода: 1 2, 3 1, 2 3')
-        continue
-
     if map[x-1][y-1] != '-':
-        print('')
-        print('Клетка уже занята')
+        os.system('clear')
+        print('Клетка уже занята', end='\n\n')
         create_map()
         continue
 
